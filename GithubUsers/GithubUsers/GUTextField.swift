@@ -13,6 +13,7 @@ class GUTextField: UITextField {
         super.init(frame: frame)
         
         // Custom Configuration
+        configure()
     }
     
     required init?(coder: NSCoder) {
