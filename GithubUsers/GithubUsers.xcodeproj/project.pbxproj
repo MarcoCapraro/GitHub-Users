@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		87021AEE2B7C00C300D13F19 /* GUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87021AED2B7C00C300D13F19 /* GUButton.swift */; };
 		87021AF02B7C066C00D13F19 /* GUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87021AEF2B7C066C00D13F19 /* GUTextField.swift */; };
+		87021AF22B7C196300D13F19 /* FollowersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87021AF12B7C196300D13F19 /* FollowersListVC.swift */; };
 		87CC97BF2B76C32A00767BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC97BE2B76C32A00767BAE /* AppDelegate.swift */; };
 		87CC97C12B76C32A00767BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC97C02B76C32A00767BAE /* SceneDelegate.swift */; };
 		87CC97C82B76C32B00767BAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87CC97C72B76C32B00767BAE /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		87021AED2B7C00C300D13F19 /* GUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUButton.swift; sourceTree = "<group>"; };
 		87021AEF2B7C066C00D13F19 /* GUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUTextField.swift; sourceTree = "<group>"; };
+		87021AF12B7C196300D13F19 /* FollowersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVC.swift; sourceTree = "<group>"; };
 		87CC97BB2B76C32A00767BAE /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CC97BE2B76C32A00767BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87CC97C02B76C32A00767BAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				87CC97D62B76C9BA00767BAE /* FavoritesListVC.swift */,
 				87021AED2B7C00C300D13F19 /* GUButton.swift */,
 				87021AEF2B7C066C00D13F19 /* GUTextField.swift */,
+				87021AF12B7C196300D13F19 /* FollowersListVC.swift */,
 			);
 			path = GithubUsers;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87CC97D72B76C9BA00767BAE /* FavoritesListVC.swift in Sources */,
+				87021AF22B7C196300D13F19 /* FollowersListVC.swift in Sources */,
 				87CC97D52B76C99600767BAE /* SearchVC.swift in Sources */,
 				87CC97BF2B76C32A00767BAE /* AppDelegate.swift in Sources */,
 				87CC97C12B76C32A00767BAE /* SceneDelegate.swift in Sources */,
