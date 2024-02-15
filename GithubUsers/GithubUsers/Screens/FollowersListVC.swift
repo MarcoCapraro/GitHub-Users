@@ -18,6 +18,16 @@ class FollowersListVC: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        NetworkManager.shared.getFollowers(for: username, page: 1) { followers, errorMessage in
+            guard let followers = followers else {
+                self.presentGUAlertOnMainThread(alertTitle: "Bad Stuff", message: errorMessage!, buttonTitle: "Ok")
+                return
+            }
+            
+            print("Followers.count = \(followers.count)")
+            print(followers)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
