@@ -9,7 +9,7 @@ import UIKit
 
 class GUAlertVC: UIViewController {
 
-    let containerView = UIView()
+    let containerView = GUContainerView()
     let titleLabel = GUTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel = GUBodyLabel(textAlignment: .center)
     let actionButton = GUButton(backgroundColor: .systemPink, title: "Ok")
@@ -45,11 +45,6 @@ class GUAlertVC: UIViewController {
     
     private func configureContainer() {
         view.addSubview(containerView)
-        containerView.backgroundColor = .systemBackground
-        containerView.layer.cornerRadius = 15
-        containerView.layer.borderWidth = 2
-        containerView.layer.borderColor = UIColor.white.cgColor
-        containerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
