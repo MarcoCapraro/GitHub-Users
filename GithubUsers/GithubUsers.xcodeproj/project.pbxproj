@@ -10,18 +10,24 @@
 		87021AEE2B7C00C300D13F19 /* GUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87021AED2B7C00C300D13F19 /* GUButton.swift */; };
 		87021AF02B7C066C00D13F19 /* GUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87021AEF2B7C066C00D13F19 /* GUTextField.swift */; };
 		87021AF22B7C196300D13F19 /* FollowersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87021AF12B7C196300D13F19 /* FollowersListVC.swift */; };
+		8764F4A02B7E969200B05C40 /* GUAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8764F49F2B7E969200B05C40 /* GUAlertVC.swift */; };
+		8764F4A22B7E9B4600B05C40 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8764F4A12B7E9B4600B05C40 /* UIViewController+Ext.swift */; };
 		87CC97BF2B76C32A00767BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC97BE2B76C32A00767BAE /* AppDelegate.swift */; };
 		87CC97C12B76C32A00767BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC97C02B76C32A00767BAE /* SceneDelegate.swift */; };
 		87CC97C82B76C32B00767BAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87CC97C72B76C32B00767BAE /* Assets.xcassets */; };
 		87CC97CB2B76C32B00767BAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87CC97C92B76C32B00767BAE /* LaunchScreen.storyboard */; };
 		87CC97D52B76C99600767BAE /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC97D42B76C99600767BAE /* SearchVC.swift */; };
 		87CC97D72B76C9BA00767BAE /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC97D62B76C9BA00767BAE /* FavoritesListVC.swift */; };
+		87D341822B7E951A00BF6E4B /* GUTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D341812B7E951A00BF6E4B /* GUTitleLabel.swift */; };
+		87D341842B7E95FB00BF6E4B /* GUBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D341832B7E95FB00BF6E4B /* GUBodyLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		87021AED2B7C00C300D13F19 /* GUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUButton.swift; sourceTree = "<group>"; };
 		87021AEF2B7C066C00D13F19 /* GUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUTextField.swift; sourceTree = "<group>"; };
 		87021AF12B7C196300D13F19 /* FollowersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVC.swift; sourceTree = "<group>"; };
+		8764F49F2B7E969200B05C40 /* GUAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUAlertVC.swift; sourceTree = "<group>"; };
+		8764F4A12B7E9B4600B05C40 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		87CC97BB2B76C32A00767BAE /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CC97BE2B76C32A00767BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87CC97C02B76C32A00767BAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +36,8 @@
 		87CC97CC2B76C32B00767BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87CC97D42B76C99600767BAE /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		87CC97D62B76C9BA00767BAE /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
+		87D341812B7E951A00BF6E4B /* GUTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUTitleLabel.swift; sourceTree = "<group>"; };
+		87D341832B7E95FB00BF6E4B /* GUBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUBodyLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,10 @@
 				87021AED2B7C00C300D13F19 /* GUButton.swift */,
 				87021AEF2B7C066C00D13F19 /* GUTextField.swift */,
 				87021AF12B7C196300D13F19 /* FollowersListVC.swift */,
+				87D341812B7E951A00BF6E4B /* GUTitleLabel.swift */,
+				87D341832B7E95FB00BF6E4B /* GUBodyLabel.swift */,
+				8764F49F2B7E969200B05C40 /* GUAlertVC.swift */,
+				8764F4A12B7E9B4600B05C40 /* UIViewController+Ext.swift */,
 			);
 			path = GithubUsers;
 			sourceTree = "<group>";
@@ -148,7 +160,11 @@
 			files = (
 				87CC97D72B76C9BA00767BAE /* FavoritesListVC.swift in Sources */,
 				87021AF22B7C196300D13F19 /* FollowersListVC.swift in Sources */,
+				87D341842B7E95FB00BF6E4B /* GUBodyLabel.swift in Sources */,
+				8764F4A22B7E9B4600B05C40 /* UIViewController+Ext.swift in Sources */,
 				87CC97D52B76C99600767BAE /* SearchVC.swift in Sources */,
+				87D341822B7E951A00BF6E4B /* GUTitleLabel.swift in Sources */,
+				8764F4A02B7E969200B05C40 /* GUAlertVC.swift in Sources */,
 				87CC97BF2B76C32A00767BAE /* AppDelegate.swift in Sources */,
 				87CC97C12B76C32A00767BAE /* SceneDelegate.swift in Sources */,
 				87021AEE2B7C00C300D13F19 /* GUButton.swift in Sources */,
