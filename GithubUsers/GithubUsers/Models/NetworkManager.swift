@@ -15,13 +15,13 @@ class NetworkManager {
     private init() {}
     
     // completion handler (closure): @ escaping (return Follower array, return error String)
-    func getFollowers(for username: String, page: Int, completed: @escaping ([Follower]?, String?) -> Void) {
+    func getFollowers(for username: String, page: Int, completed: @escaping (Result<[Follower], GUError>) -> Void) {
         // Create the url that we will be trying to access data from
         let endpoint = baseURL + "\(username)/followers?per_page=100&page=\(page)"
         
         // Ensure valid url, otherwise prompt error and return
         guard let url = URL(string: endpoint) else {
-            completed(nil, "This username created an invalid request. Please try again")
+            completed(.failure(.invalidUsername))
             return
         }
         
@@ -29,20 +29,20 @@ class NetworkManager {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             // If an error exists return that error, otherwise continue
             if let _ = error {
-                completed(nil, "Unable to complete your request. Please check your internet connection")
+                completed(.failure(.unableToComplete))
                 return
             }
             
             // (1st check) If the response isn't nil, set it as response;
             // (2nd check) Now that the response is not nil, If the response.statusCode == 200, you are good to go
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completed(nil, "Invalid response from the server. Please try again")
+                completed(.failure(.invalidResponse))
                 return
             }
             
             // Ensure data isn't nil, otherwise prompt error and return
             guard let data = data else {
-                completed(nil, "The data received from the server is invalid. Please try again")
+                completed(.failure(.invalidData))
                 return
             }
             
@@ -55,11 +55,11 @@ class NetworkManager {
                 
                 // Try to decode the retrieved data into an array of followers, otherwise go to catch
                 let followers = try decoder.decode([Follower].self, from: data)
-                completed(followers, nil)
+                completed(.success(followers))
                 
             // When the try fails, the catch block is executed
             } catch {
-                completed(nil, "The data received from the server is invalid. Please try again")
+                completed(.failure(.invalidData))
                 return
             }
         }

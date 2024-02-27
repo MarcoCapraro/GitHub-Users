@@ -33,7 +33,7 @@ class GUButton: UIButton {
     
     private func configure() {
         layer.cornerRadius = 10
-        titleLabel?.textColor = .white
+        setTitleColor(.white, for: .normal)
         
         // Human Interface Guidelines recommended using built-in text styles for dynamic type and consistency
         titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
