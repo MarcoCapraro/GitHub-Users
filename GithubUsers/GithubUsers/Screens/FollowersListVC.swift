@@ -9,9 +9,7 @@ import UIKit
 
 class FollowersListVC: UIViewController {
     
-    enum Section {
-        case main
-    }
+    enum Section { case main }
     
     // This is the data that will be passed to this view
     var username: String!
@@ -44,7 +42,7 @@ class FollowersListVC: UIViewController {
     
     func configureCollectionView() {
         // Initialize collection view to use
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFlowLayout())
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
         
         collectionView.backgroundColor = .systemBackground
@@ -52,25 +50,14 @@ class FollowersListVC: UIViewController {
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
-    func createThreeColumnFlowLayout() -> UICollectionViewFlowLayout {
-        // 3 Column Flow Layout used for our UICOllectionView
-        let width = view.bounds.width
-        let padding: CGFloat = 12
-        let minimumSpacing: CGFloat = 10
-        let availableWidth = width - (padding * 2) - (minimumSpacing * 2)
-        let itemWidth = availableWidth / 3
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
-        
-        return flowLayout
-    }
-    
     func getFollowers() {
-        NetworkManager.shared.getFollowers(for: username, page: 1) { result in
+        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+            // Make sure self isn't optional to use without unwrapping below
+            guard let self = self else { return }
+            
             switch result {
             case . success(let followers):
+                // Strong reference to FollowersListVC because of self, need to make sure weak reference (shown above)
                 self.followers = followers
                 self.updateData()
 
