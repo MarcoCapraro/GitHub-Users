@@ -10,6 +10,7 @@
 		87021AEE2B7C00C300D13F19 /* GUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87021AED2B7C00C300D13F19 /* GUButton.swift */; };
 		87021AF02B7C066C00D13F19 /* GUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87021AEF2B7C066C00D13F19 /* GUTextField.swift */; };
 		87021AF22B7C196300D13F19 /* FollowersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87021AF12B7C196300D13F19 /* FollowersListVC.swift */; };
+		8726626A2B8E6BB100E841D9 /* GUError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872662692B8E6BB100E841D9 /* GUError.swift */; };
 		8764F4A02B7E969200B05C40 /* GUAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8764F49F2B7E969200B05C40 /* GUAlertVC.swift */; };
 		8764F4A22B7E9B4600B05C40 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8764F4A12B7E9B4600B05C40 /* UIViewController+Ext.swift */; };
 		8764F4A82B7EA52100B05C40 /* GUContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8764F4A72B7EA52100B05C40 /* GUContainerView.swift */; };
@@ -30,6 +31,7 @@
 		87021AED2B7C00C300D13F19 /* GUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUButton.swift; sourceTree = "<group>"; };
 		87021AEF2B7C066C00D13F19 /* GUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUTextField.swift; sourceTree = "<group>"; };
 		87021AF12B7C196300D13F19 /* FollowersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVC.swift; sourceTree = "<group>"; };
+		872662692B8E6BB100E841D9 /* GUError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUError.swift; sourceTree = "<group>"; };
 		8764F49F2B7E969200B05C40 /* GUAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUAlertVC.swift; sourceTree = "<group>"; };
 		8764F4A12B7E9B4600B05C40 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		8764F4A72B7EA52100B05C40 /* GUContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUContainerView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		872662662B8E65DA00E841D9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				872662692B8E6BB100E841D9 /* GUError.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		8764F4A32B7E9F2C00B05C40 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 		87CC97BD2B76C32A00767BAE /* GithubUsers */ = {
 			isa = PBXGroup;
 			children = (
+				872662662B8E65DA00E841D9 /* Utilities */,
 				8764F4A92B7EB01C00B05C40 /* Models */,
 				8764F4A52B7E9F7300B05C40 /* Extensions */,
 				8764F4A42B7E9F4900B05C40 /* Custom Views */,
@@ -210,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8726626A2B8E6BB100E841D9 /* GUError.swift in Sources */,
 				87CC97D72B76C9BA00767BAE /* FavoritesListVC.swift in Sources */,
 				87021AF22B7C196300D13F19 /* FollowersListVC.swift in Sources */,
 				8764F4A82B7EA52100B05C40 /* GUContainerView.swift in Sources */,
