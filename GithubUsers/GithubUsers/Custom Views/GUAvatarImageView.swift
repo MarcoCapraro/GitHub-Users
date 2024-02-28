@@ -8,6 +8,8 @@
 import UIKit
 
 class GUAvatarImageView: UIImageView {
+    
+    let cache = NetworkManager.shared.cache
     let placeholderImage = UIImage(named: "avatar-placeholder")
     
     override init(frame: CGRect) {
@@ -29,23 +31,11 @@ class GUAvatarImageView: UIImageView {
         image = placeholderImage        // sets the default image view in case of no avatar to placeholder image
     }
     
-    func downloadImage(from urlString: String) {
-        guard let url = URL(string: urlString) else { return }
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+    // Makes network call to download image (or use cached image)
+    func setImage(from urlString: String) {
+        NetworkManager.shared.downloadImage(from: urlString) { [weak self] image in
             guard let self = self else { return }
-            
-            if error != nil { return }
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-            guard let data = data else { return }
-            
-            guard let image = UIImage(data: data) else { return }
-            
-            DispatchQueue.main.async {
-                self.image = image
-            }
+            self.image = image
         }
-        
-        task.resume()
     }
 }
