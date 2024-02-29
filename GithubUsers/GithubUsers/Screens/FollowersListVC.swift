@@ -14,6 +14,8 @@ class FollowersListVC: UIViewController {
     // This is the data that will be passed to this view
     var username: String!
     var followers: [Follower] = []
+    var page: Int = 1
+    var hasMoreFollowers: Bool = true
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
@@ -24,7 +26,7 @@ class FollowersListVC: UIViewController {
         // Do any additional setup after loading the view.
         configureViewController()
         configureCollectionView()
-        getFollowers()
+        getFollowers(username: username, page: page)
         configureDataSource()
         
     }
@@ -44,21 +46,23 @@ class FollowersListVC: UIViewController {
         // Initialize collection view to use
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
         view.addSubview(collectionView)
+        collectionView.delegate = self
         
         collectionView.backgroundColor = .systemBackground
         // Register the FollowerCell to use for each cell in the collection view
         collectionView.register(FollowerCell.self, forCellWithReuseIdentifier: FollowerCell.reuseID)
     }
     
-    func getFollowers() {
-        NetworkManager.shared.getFollowers(for: username, page: 1) { [weak self] result in
+    func getFollowers(username: String, page: Int) {
+        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
             // Make sure self isn't optional to use without unwrapping below
             guard let self = self else { return }
             
             switch result {
             case . success(let followers):
+                if(followers.count < 100) { self.hasMoreFollowers = false }
                 // Strong reference to FollowersListVC because of self, need to make sure weak reference (shown above)
-                self.followers = followers
+                self.followers.append(contentsOf: followers)
                 self.updateData()
 
             case .failure(let err):
@@ -86,4 +90,20 @@ class FollowersListVC: UIViewController {
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
     }
 
+}
+
+extension FollowersListVC: UICollectionViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        // offsetY (scroll distance), contentHeight (height of entire collection), height (screen height)
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        // Determines if you've reached the end of your scroll (last page of followers)
+        if(offsetY > contentHeight - height) {
+            guard hasMoreFollowers else { return }
+            page += 1
+            getFollowers(username: username, page: page)
+        }
+    }
 }
