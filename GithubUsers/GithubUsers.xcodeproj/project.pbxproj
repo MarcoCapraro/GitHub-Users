@@ -15,6 +15,7 @@
 		8726626F2B8E6ED100E841D9 /* GUAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726626E2B8E6ED100E841D9 /* GUAvatarImageView.swift */; };
 		872662712B8E82B500E841D9 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872662702B8E82B500E841D9 /* UIHelper.swift */; };
 		872662792B9668C100E841D9 /* GUEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872662782B9668C100E841D9 /* GUEmptyStateView.swift */; };
+		8726627B2B96792C00E841D9 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726627A2B96792C00E841D9 /* UserInfoVC.swift */; };
 		8764F4A02B7E969200B05C40 /* GUAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8764F49F2B7E969200B05C40 /* GUAlertVC.swift */; };
 		8764F4A22B7E9B4600B05C40 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8764F4A12B7E9B4600B05C40 /* UIViewController+Ext.swift */; };
 		8764F4A82B7EA52100B05C40 /* GUContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8764F4A72B7EA52100B05C40 /* GUContainerView.swift */; };
@@ -40,6 +41,7 @@
 		8726626E2B8E6ED100E841D9 /* GUAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUAvatarImageView.swift; sourceTree = "<group>"; };
 		872662702B8E82B500E841D9 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		872662782B9668C100E841D9 /* GUEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUEmptyStateView.swift; sourceTree = "<group>"; };
+		8726627A2B96792C00E841D9 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
 		8764F49F2B7E969200B05C40 /* GUAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUAlertVC.swift; sourceTree = "<group>"; };
 		8764F4A12B7E9B4600B05C40 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		8764F4A72B7EA52100B05C40 /* GUContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUContainerView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				87CC97D42B76C99600767BAE /* SearchVC.swift */,
 				87CC97D62B76C9BA00767BAE /* FavoritesListVC.swift */,
 				87021AF12B7C196300D13F19 /* FollowersListVC.swift */,
+				8726627A2B96792C00E841D9 /* UserInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				8726626D2B8E6E7700E841D9 /* FollowerCell.swift in Sources */,
 				8764F4AD2B7EB0AA00B05C40 /* User.swift in Sources */,
 				87D341822B7E951A00BF6E4B /* GUTitleLabel.swift in Sources */,
+				8726627B2B96792C00E841D9 /* UserInfoVC.swift in Sources */,
 				8764F4AB2B7EB02800B05C40 /* Follower.swift in Sources */,
 				8764F4A02B7E969200B05C40 /* GUAlertVC.swift in Sources */,
 				87CC97BF2B76C32A00767BAE /* AppDelegate.swift in Sources */,
