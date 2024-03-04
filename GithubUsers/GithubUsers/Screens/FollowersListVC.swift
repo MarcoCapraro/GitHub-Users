@@ -65,6 +65,12 @@ class FollowersListVC: UIViewController {
                 if(followers.count < 100) { self.hasMoreFollowers = false }
                 // Strong reference to FollowersListVC because of self, need to make sure weak reference (shown above)
                 self.followers.append(contentsOf: followers)
+                
+                if(self.followers.isEmpty) {
+                    let message = "This user doesn't have any followers. Go follow them 😄"
+                    DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+                    return
+                }
                 self.updateData()
 
             case .failure(let err):
