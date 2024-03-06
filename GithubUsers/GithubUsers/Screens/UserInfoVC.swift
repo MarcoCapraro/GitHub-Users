@@ -47,10 +47,6 @@ class UserInfoVC: UIViewController {
             ])
         }
         
-        // Temporary Code
-        itemViewOne.backgroundColor = .systemPink
-        itemViewTwo.backgroundColor = .systemBlue
-        
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 180),
@@ -71,6 +67,8 @@ class UserInfoVC: UIViewController {
             case .success(let user):
                 DispatchQueue.main.async {
                     self.add(childVC: GUUserInfoHeaderVC(user: user), to: self.headerView)
+                    self.add(childVC: GURepoItemVC(user: user), to: self.itemViewOne)
+                    self.add(childVC: GUFollowerItemVC(user: user), to: self.itemViewTwo)
                 }
             case .failure(let error):
                 self.presentGUAlertOnMainThread(alertTitle: "Something Went Wrong", message: error.rawValue, buttonTitle: "Ok")
