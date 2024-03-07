@@ -35,6 +35,8 @@
 		87D2C7A22B991C6200A43B96 /* GUItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7A12B991C6200A43B96 /* GUItemInfoVC.swift */; };
 		87D2C7A42B991FE100A43B96 /* GURepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7A32B991FE100A43B96 /* GURepoItemVC.swift */; };
 		87D2C7A62B99214400A43B96 /* GUFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7A52B99214400A43B96 /* GUFollowerItemVC.swift */; };
+		87D2C7A92B9A6A6F00A43B96 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7A82B9A6A6F00A43B96 /* Date+Ext.swift */; };
+		87D2C7AB2B9A6A9800A43B96 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7AA2B9A6A9800A43B96 /* String+Ext.swift */; };
 		87D341822B7E951A00BF6E4B /* GUTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D341812B7E951A00BF6E4B /* GUTitleLabel.swift */; };
 		87D341842B7E95FB00BF6E4B /* GUBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D341832B7E95FB00BF6E4B /* GUBodyLabel.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,8 @@
 		87D2C7A12B991C6200A43B96 /* GUItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUItemInfoVC.swift; sourceTree = "<group>"; };
 		87D2C7A32B991FE100A43B96 /* GURepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GURepoItemVC.swift; sourceTree = "<group>"; };
 		87D2C7A52B99214400A43B96 /* GUFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUFollowerItemVC.swift; sourceTree = "<group>"; };
+		87D2C7A82B9A6A6F00A43B96 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		87D2C7AA2B9A6A9800A43B96 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		87D341812B7E951A00BF6E4B /* GUTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUTitleLabel.swift; sourceTree = "<group>"; };
 		87D341832B7E95FB00BF6E4B /* GUBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUBodyLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				8764F4A12B7E9B4600B05C40 /* UIViewController+Ext.swift */,
+				87D2C7A82B9A6A6F00A43B96 /* Date+Ext.swift */,
+				87D2C7AA2B9A6A9800A43B96 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -339,11 +345,13 @@
 				87CC97BF2B76C32A00767BAE /* AppDelegate.swift in Sources */,
 				87CC97C12B76C32A00767BAE /* SceneDelegate.swift in Sources */,
 				87D2C7A22B991C6200A43B96 /* GUItemInfoVC.swift in Sources */,
+				87D2C7AB2B9A6A9800A43B96 /* String+Ext.swift in Sources */,
 				8764F4AF2B7EB61000B05C40 /* NetworkManager.swift in Sources */,
 				872662712B8E82B500E841D9 /* UIHelper.swift in Sources */,
 				87021AEE2B7C00C300D13F19 /* GUButton.swift in Sources */,
 				87D2C7A42B991FE100A43B96 /* GURepoItemVC.swift in Sources */,
 				87D2C79C2B97BCC500A43B96 /* GUSecondaryTitleLabel.swift in Sources */,
+				87D2C7A92B9A6A6F00A43B96 /* Date+Ext.swift in Sources */,
 				87021AF02B7C066C00D13F19 /* GUTextField.swift in Sources */,
 				87D2C7A02B99166700A43B96 /* GUItemInfoView.swift in Sources */,
 				8726626F2B8E6ED100E841D9 /* GUAvatarImageView.swift in Sources */,
