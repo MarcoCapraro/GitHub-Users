@@ -18,12 +18,10 @@ class GUButton: UIButton {
     }
     
     // To create buttons with different text and color
-    init(backgroundColor: UIColor, title: String) {
-        super.init(frame: .zero)
-        
+    convenience init(backgroundColor: UIColor, title: String) {
+        self.init(frame: .zero)
         self.backgroundColor = backgroundColor
         self.setTitle(title, for: .normal)
-        configure()
     }
     
     // This is needed to avoid storyboard initialization error

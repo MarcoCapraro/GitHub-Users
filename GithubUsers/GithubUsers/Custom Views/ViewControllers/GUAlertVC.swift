@@ -9,10 +9,10 @@ import UIKit
 
 class GUAlertVC: UIViewController {
 
-    let containerView = GUContainerView()
-    let titleLabel = GUTitleLabel(textAlignment: .center, fontSize: 20)
-    let messageLabel = GUBodyLabel(textAlignment: .center)
-    let actionButton = GUButton(backgroundColor: .systemPink, title: "Ok")
+    let containerView   = GUContainerView()
+    let titleLabel      = GUTitleLabel(textAlignment: .center, fontSize: 20)
+    let messageLabel    = GUBodyLabel(textAlignment: .center)
+    let actionButton    = GUButton(backgroundColor: .systemPink, title: "Ok")
     
     var alertTitle: String?
     var message: String?
@@ -23,9 +23,9 @@ class GUAlertVC: UIViewController {
     init(alertTitle: String, message: String, buttonTitle: String) {
         super.init(nibName: nil, bundle: nil)
         
-        self.alertTitle = alertTitle
-        self.message = message
-        self.buttonTitle = buttonTitle
+        self.alertTitle     = alertTitle
+        self.message        = message
+        self.buttonTitle    = buttonTitle
     }
     
     required init?(coder: NSCoder) {
@@ -36,7 +36,7 @@ class GUAlertVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         configureContainer()
         configureTitleLabel()
         configureActionButton()
