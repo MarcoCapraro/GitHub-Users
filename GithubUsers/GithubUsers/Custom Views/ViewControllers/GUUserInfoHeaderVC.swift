@@ -37,10 +37,7 @@ class GUUserInfoHeaderVC: UIViewController {
     }
     
     func configureUIElements() {
-        NetworkManager.shared.downloadImage(from: user.avatarUrl) { [weak self] image in
-            guard let self = self else { return }
-            avatarImageView.image = image
-        }
+        avatarImageView.setImage(from: user.avatarUrl)
         
         usernameLabel.text = user.login
         nameLabel.text = user.name ?? "N/A"

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Can remove this if set date decoding strategy to iso8601 and createdAt to Date type in User model
 extension String {
     
     // Convert date String into a Date

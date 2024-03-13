@@ -23,10 +23,10 @@ class GUContainerView: UIView {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
 
-        backgroundColor = .systemBackground
-        layer.cornerRadius = 15
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.white.cgColor
+        backgroundColor     = .systemBackground
+        layer.cornerRadius  = 15
+        layer.borderWidth   = 2
+        layer.borderColor   = UIColor.white.cgColor
     }
     
 }

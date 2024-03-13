@@ -9,8 +9,8 @@ import UIKit
 
 class GUAvatarImageView: UIImageView {
     
-    let cache = NetworkManager.shared.cache
-    let placeholderImage = UIImage(named: "avatar-placeholder")
+    let cache               = NetworkManager.shared.cache
+    let placeholderImage    = UIImage(named: "avatar-placeholder")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,16 +26,16 @@ class GUAvatarImageView: UIImageView {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        layer.cornerRadius = 10         // rounded edges
-        clipsToBounds = true            // clips avatar UIImage to bounds of UIImageView so it also conforms to rounded edges
-        image = placeholderImage        // sets the default image view in case of no avatar to placeholder image
+        layer.cornerRadius      = 10                // rounded edges
+        clipsToBounds           = true              // clips avatar UIImage to bounds of UIImageView so it also conforms to rounded edges
+        image                   = placeholderImage  // sets the default image view in case of no avatar to placeholder image
     }
     
     // Makes network call to download image (or use cached image)
     func setImage(from urlString: String) {
         NetworkManager.shared.downloadImage(from: urlString) { [weak self] image in
             guard let self = self else { return }
-            self.image = image
+            DispatchQueue.main.async { self.image = image }
         }
     }
 }
