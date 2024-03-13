@@ -12,6 +12,7 @@
 		87021AF22B7C196300D13F19 /* FollowersListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87021AF12B7C196300D13F19 /* FollowersListVC.swift */; };
 		871DA8AA2B9F99EB006EB8AB /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871DA8A92B9F99EB006EB8AB /* PersistenceManager.swift */; };
 		871DA8AC2B9FA57D006EB8AB /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871DA8AB2B9FA57D006EB8AB /* FavoriteCell.swift */; };
+		8725CA742BA200CA0005B4B1 /* GUTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8725CA732BA200CA0005B4B1 /* GUTabBarController.swift */; };
 		8726626A2B8E6BB100E841D9 /* GUError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872662692B8E6BB100E841D9 /* GUError.swift */; };
 		8726626D2B8E6E7700E841D9 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726626C2B8E6E7700E841D9 /* FollowerCell.swift */; };
 		8726626F2B8E6ED100E841D9 /* GUAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726626E2B8E6ED100E841D9 /* GUAvatarImageView.swift */; };
@@ -49,6 +50,7 @@
 		87021AF12B7C196300D13F19 /* FollowersListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListVC.swift; sourceTree = "<group>"; };
 		871DA8A92B9F99EB006EB8AB /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		871DA8AB2B9FA57D006EB8AB /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		8725CA732BA200CA0005B4B1 /* GUTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUTabBarController.swift; sourceTree = "<group>"; };
 		872662692B8E6BB100E841D9 /* GUError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUError.swift; sourceTree = "<group>"; };
 		8726626C2B8E6E7700E841D9 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		8726626E2B8E6ED100E841D9 /* GUAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUAvatarImageView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 				871DA8A92B9F99EB006EB8AB /* PersistenceManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		8725CA722BA200AE0005B4B1 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8725CA732BA200CA0005B4B1 /* GUTabBarController.swift */,
+			);
+			path = TabBarControllers;
 			sourceTree = "<group>";
 		};
 		872662662B8E65DA00E841D9 /* Utilities */ = {
@@ -189,6 +199,7 @@
 		8764F4A42B7E9F4900B05C40 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				8725CA722BA200AE0005B4B1 /* TabBarControllers */,
 				872662722B96680A00E841D9 /* ViewControllers */,
 				872662772B96685000E841D9 /* ImageViews */,
 				872662762B96683B00E841D9 /* Views */,
@@ -364,6 +375,7 @@
 				87D2C7AB2B9A6A9800A43B96 /* String+Ext.swift in Sources */,
 				8764F4AF2B7EB61000B05C40 /* NetworkManager.swift in Sources */,
 				872662712B8E82B500E841D9 /* UIHelper.swift in Sources */,
+				8725CA742BA200CA0005B4B1 /* GUTabBarController.swift in Sources */,
 				87021AEE2B7C00C300D13F19 /* GUButton.swift in Sources */,
 				87D2C7A42B991FE100A43B96 /* GURepoItemVC.swift in Sources */,
 				87D2C79C2B97BCC500A43B96 /* GUSecondaryTitleLabel.swift in Sources */,
