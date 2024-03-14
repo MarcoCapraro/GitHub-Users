@@ -9,8 +9,8 @@ import UIKit
 
 class FavoritesListVC: GUDataLoadingVC {
     
-    let tableView = UITableView()
-    var favorites: [Follower] = []
+    let tableView               = UITableView()
+    var favorites: [Follower]   = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +34,10 @@ class FavoritesListVC: GUDataLoadingVC {
     
     func configureTableView() {
         view.addSubview(tableView)
-        tableView.frame = view.bounds
-        tableView.rowHeight = 80
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.frame         = view.bounds
+        tableView.rowHeight     = 80
+        tableView.delegate      = self
+        tableView.dataSource    = self
         
         tableView.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.reuseID)
     }
@@ -74,10 +74,10 @@ extension FavoritesListVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCell.reuseID) as! FavoriteCell
-        let favorite = favorites[indexPath.row]
-        cell.set(favorite: favorite)
+        let cell        = tableView.dequeueReusableCell(withIdentifier: FavoriteCell.reuseID) as! FavoriteCell
+        let favorite    = favorites[indexPath.row]
         
+        cell.set(favorite: favorite)
         return cell
     }
     

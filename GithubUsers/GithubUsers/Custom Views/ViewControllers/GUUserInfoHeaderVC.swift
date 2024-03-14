@@ -9,12 +9,12 @@ import UIKit
 
 class GUUserInfoHeaderVC: UIViewController {
     
-    let avatarImageView = GUAvatarImageView(frame: .zero)
-    let usernameLabel = GUTitleLabel(textAlignment: .left, fontSize: 34)
-    let nameLabel = GUSecondaryTitleLabel(fontSize: 18)
-    let locationImageView = UIImageView()
-    let locationLabel = GUSecondaryTitleLabel(fontSize: 18)
-    let bioLabel = GUBodyLabel(textAlignment: .left)
+    let avatarImageView     = GUAvatarImageView(frame: .zero)
+    let usernameLabel       = GUTitleLabel(textAlignment: .left, fontSize: 34)
+    let nameLabel           = GUSecondaryTitleLabel(fontSize: 18)
+    let locationImageView   = UIImageView()
+    let locationLabel       = GUSecondaryTitleLabel(fontSize: 18)
+    let bioLabel            = GUBodyLabel(textAlignment: .left)
     
     var user: User!
     
@@ -39,23 +39,18 @@ class GUUserInfoHeaderVC: UIViewController {
     func configureUIElements() {
         avatarImageView.setImage(from: user.avatarUrl)
         
-        usernameLabel.text = user.login
-        nameLabel.text = user.name ?? "N/A"
-        locationLabel.text = user.location ?? "No Location"
-        bioLabel.text = user.bio ?? "No Bio Available"
-        bioLabel.numberOfLines = 3
+        usernameLabel.text      = user.login
+        nameLabel.text          = user.name ?? "N/A"
+        locationLabel.text      = user.location ?? "No Location"
+        bioLabel.text           = user.bio ?? "No Bio Available"
+        bioLabel.numberOfLines  = 3
         
-        locationImageView.image = UIImage(systemName: SFSymbols.location)
+        locationImageView.image = SFSymbols.location
         locationImageView.tintColor = .secondaryLabel
     }
     
     func addSubviews() {
-        view.addSubview(avatarImageView)
-        view.addSubview(usernameLabel)
-        view.addSubview(nameLabel)
-        view.addSubview(locationImageView)
-        view.addSubview(locationLabel)
-        view.addSubview(bioLabel)
+        view.addSubViews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
     }
     
     func layoutUI() {
@@ -92,7 +87,7 @@ class GUUserInfoHeaderVC: UIViewController {
             bioLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: textImagePadding),
             bioLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             bioLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bioLabel.heightAnchor.constraint(equalToConstant: 60)
+            bioLabel.heightAnchor.constraint(equalToConstant: 90)
         ])
     }
 

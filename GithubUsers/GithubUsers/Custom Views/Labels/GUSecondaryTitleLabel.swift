@@ -27,10 +27,10 @@ class GUSecondaryTitleLabel: UILabel {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        textColor = .secondaryLabel
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.90
-        lineBreakMode = .byTruncatingTail
+        textColor                   = .secondaryLabel
+        adjustsFontSizeToFitWidth   = true
+        minimumScaleFactor          = 0.90
+        lineBreakMode               = .byTruncatingTail
         
     }
 }

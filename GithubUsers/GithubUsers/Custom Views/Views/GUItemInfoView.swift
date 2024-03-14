@@ -14,8 +14,8 @@ enum ItemInfoType {
 class GUItemInfoView: UIView {
     
     let symbolImageView = UIImageView()
-    let titleLabel = GUTitleLabel(textAlignment: .left, fontSize: 14)
-    let countLabel = GUTitleLabel(textAlignment: .center, fontSize: 14)
+    let titleLabel      = GUTitleLabel(textAlignment: .left, fontSize: 14)
+    let countLabel      = GUTitleLabel(textAlignment: .center, fontSize: 14)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,10 +29,8 @@ class GUItemInfoView: UIView {
     }
     
     private func configure() {
-        addSubview(symbolImageView)
-        addSubview(titleLabel)
-        addSubview(countLabel)
-        
+        addSubViews(symbolImageView, titleLabel, countLabel)
+
         symbolImageView.translatesAutoresizingMaskIntoConstraints = false
         symbolImageView.contentMode = .scaleAspectFill
         symbolImageView.tintColor = .label
@@ -64,17 +62,17 @@ class GUItemInfoView: UIView {
     func set(itemInfoType: ItemInfoType, with count: Int) {
         switch itemInfoType {
         case .repos:
-            symbolImageView.image = UIImage(named: SFSymbols.repos)
-            titleLabel.text = "Public Repos"
+            symbolImageView.image   = SFSymbols.repos
+            titleLabel.text         = "Public Repos"
         case .gists:
-            symbolImageView.image = UIImage(named: SFSymbols.gists)
-            titleLabel.text = "Public Gists"
+            symbolImageView.image   = SFSymbols.gists
+            titleLabel.text         = "Public Gists"
         case .followers:
-            symbolImageView.image = UIImage(named: SFSymbols.followers)
-            titleLabel.text = "Followers"
+            symbolImageView.image   = SFSymbols.followers
+            titleLabel.text         = "Followers"
         case .following:
-            symbolImageView.image = UIImage(named: SFSymbols.following)
-            titleLabel.text = "Following"
+            symbolImageView.image   = SFSymbols.following
+            titleLabel.text         = "Following"
         }
         
         countLabel.text = String(count)

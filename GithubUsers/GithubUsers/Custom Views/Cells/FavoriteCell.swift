@@ -8,10 +8,10 @@
 import UIKit
 
 class FavoriteCell: UITableViewCell {
-    static let reuseID = "FavoriteCell"
     
+    static let reuseID  = "FavoriteCell"
     let avatarImageView = GUAvatarImageView(frame: .zero)
-    let usernameLabel = GUTitleLabel(textAlignment: .left, fontSize: 26)
+    let usernameLabel   = GUTitleLabel(textAlignment: .left, fontSize: 26)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,8 +30,7 @@ class FavoriteCell: UITableViewCell {
     }
     
     private func configure() {
-        addSubview(avatarImageView)
-        addSubview(usernameLabel)
+        addSubViews(avatarImageView, usernameLabel)
         
         accessoryType = .disclosureIndicator
         let padding: CGFloat = 12

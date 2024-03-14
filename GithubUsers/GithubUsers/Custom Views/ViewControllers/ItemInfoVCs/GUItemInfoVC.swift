@@ -10,13 +10,12 @@ import UIKit
 class GUItemInfoVC: UIViewController {
     
     // Stack view for both GUItemInfoViews
-    let stackView = UIStackView()
+    let stackView       = UIStackView()
     let itemInfoViewOne = GUItemInfoView()
     let itemInfoViewTwo = GUItemInfoView()
-    let actionButton = GUButton()
+    let actionButton    = GUButton()
     
     var user: User!
-    weak var delegate: UserInfoVCDelegate!
     
     init(user: User) {
         super.init(nibName: nil, bundle: nil)
@@ -58,8 +57,7 @@ class GUItemInfoVC: UIViewController {
     @objc func actionButtonTapped() {}
 
     private func layoutUI() {
-        view.addSubview(stackView)
-        view.addSubview(actionButton)
+        view.addSubViews(stackView, actionButton)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         let padding: CGFloat = 20
