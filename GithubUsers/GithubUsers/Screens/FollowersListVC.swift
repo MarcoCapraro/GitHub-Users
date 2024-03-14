@@ -84,23 +84,13 @@ class FollowersListVC: GUDataLoadingVC {
         isLoadingMoreFollowers = true
         
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
-            // Make sure self isn't optional to use without unwrapping below
             guard let self = self else { return }
             self.dismissLoadingView()
             
             switch result {
             case . success(let followers):
-                if(followers.count < 100) { self.hasMoreFollowers = false }
-                // Strong reference to FollowersListVC because of self, need to make sure weak reference (shown above)
-                self.followers.append(contentsOf: followers)
+                self.updateUI(with: followers)
                 
-                if(self.followers.isEmpty) {
-                    let message = "This user doesn't have any followers. Go follow them 😄"
-                    DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
-                    return
-                }
-                self.updateData(on: followers)
-
             case .failure(let err):
                 self.presentGUAlertOnMainThread(alertTitle: "Bad Stuff", message: err.rawValue, buttonTitle: "Ok")
             }
@@ -108,6 +98,20 @@ class FollowersListVC: GUDataLoadingVC {
             isLoadingMoreFollowers = false
                         
         }
+    }
+    
+    func updateUI(with followers: [Follower]) {
+        // There would be a strong reference to FollowersListVC because of self, but weak self declared in getFollowers
+        if(followers.count < 100) { self.hasMoreFollowers = false }
+        self.followers.append(contentsOf: followers)
+        
+        if(self.followers.isEmpty) {
+            let message = "This user doesn't have any followers. Go follow them 😄"
+            DispatchQueue.main.async { self.showEmptyStateView(with: message, in: self.view) }
+            return
+        }
+        self.updateData(on: followers)
+
     }
     
     func configureDataSource() {
@@ -137,21 +141,25 @@ class FollowersListVC: GUDataLoadingVC {
             
             switch result {
             case .success(let user):
-                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
-                PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
-                    guard let self = self else { return }
-                    guard let error = error else {
-                        self.presentGUAlertOnMainThread(alertTitle: "Success!", message: "You have successfully favorited this user", buttonTitle: "Hooray!")
-                        return
-                    }
-                    
-                    self.presentGUAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
-                }
+                self.addUserToFavorites(user: user)
                 
             case .failure(let error):
                 self.presentGUAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
             
+        }
+    }
+    
+    func addUserToFavorites(user: User) {
+        let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+            guard let error = error else {
+                self.presentGUAlertOnMainThread(alertTitle: "Success!", message: "You have successfully favorited this user", buttonTitle: "Hooray!")
+                return
+            }
+            
+            self.presentGUAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
         }
     }
 
@@ -212,7 +220,6 @@ extension FollowersListVC: UserInfoVCDelegate {
         filteredFollowers.removeAll()
         collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
 
-        
         // Set to new user
         getFollowers(username: username, page: page)
     }

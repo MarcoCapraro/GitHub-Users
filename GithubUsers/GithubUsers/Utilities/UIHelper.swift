@@ -9,8 +9,8 @@ import UIKit
 
 enum UIHelper {
     
+    // 3 Column Flow Layout used for our UICOllectionView
     static func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
-        // 3 Column Flow Layout used for our UICOllectionView
         let width                   = view.bounds.width
         let padding: CGFloat        = 12
         let minimumSpacing: CGFloat = 10

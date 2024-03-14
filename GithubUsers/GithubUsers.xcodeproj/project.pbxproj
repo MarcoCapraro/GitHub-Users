@@ -121,8 +121,8 @@
 		872662662B8E65DA00E841D9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				872662692B8E6BB100E841D9 /* GUError.swift */,
 				872662702B8E82B500E841D9 /* UIHelper.swift */,
+				872662692B8E6BB100E841D9 /* GUError.swift */,
 				87D2C79D2B97C23700A43B96 /* Constants.swift */,
 			);
 			path = Utilities;
@@ -196,8 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				87CC97D42B76C99600767BAE /* SearchVC.swift */,
-				87CC97D62B76C9BA00767BAE /* FavoritesListVC.swift */,
 				87021AF12B7C196300D13F19 /* FollowersListVC.swift */,
+				87CC97D62B76C9BA00767BAE /* FavoritesListVC.swift */,
 				8726627A2B96792C00E841D9 /* UserInfoVC.swift */,
 			);
 			path = Screens;
@@ -211,8 +211,8 @@
 				872662772B96685000E841D9 /* ImageViews */,
 				872662762B96683B00E841D9 /* Views */,
 				872662742B96681800E841D9 /* TextFields */,
-				872662732B96681000E841D9 /* Labels */,
 				872662752B96681E00E841D9 /* Buttons */,
+				872662732B96681000E841D9 /* Labels */,
 				8726626B2B8E6E5F00E841D9 /* Cells */,
 			);
 			path = "Custom Views";
@@ -285,8 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				87D2C7A12B991C6200A43B96 /* GUItemInfoVC.swift */,
-				87D2C7A52B99214400A43B96 /* GUFollowerItemVC.swift */,
 				87D2C7A32B991FE100A43B96 /* GURepoItemVC.swift */,
+				87D2C7A52B99214400A43B96 /* GUFollowerItemVC.swift */,
 			);
 			path = ItemInfoVCs;
 			sourceTree = "<group>";
