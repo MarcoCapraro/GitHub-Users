@@ -12,10 +12,10 @@ extension String {
     
     // Convert date String into a Date
     func converToDate() -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.timeZone = .current
+        let dateFormatter           = DateFormatter()
+        dateFormatter.dateFormat    = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.locale        = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone      = .current
         
         // Takes string of the dateFormat and returns it as a Date
         return dateFormatter.date(from: self)

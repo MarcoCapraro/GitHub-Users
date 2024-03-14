@@ -27,11 +27,12 @@ class GUBodyLabel: UILabel {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        font = UIFont.preferredFont(forTextStyle: .body)
-        textColor = .secondaryLabel
-        adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.75
-        lineBreakMode = .byWordWrapping
+        font                                = UIFont.preferredFont(forTextStyle: .body)
+        textColor                           = .secondaryLabel
+        adjustsFontForContentSizeCategory   = true
+        adjustsFontSizeToFitWidth           = true
+        minimumScaleFactor                  = 0.75
+        lineBreakMode                       = .byWordWrapping
         
     }
 

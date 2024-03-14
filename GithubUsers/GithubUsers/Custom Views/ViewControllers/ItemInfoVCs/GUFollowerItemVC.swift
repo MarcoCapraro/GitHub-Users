@@ -7,7 +7,24 @@
 
 import UIKit
 
+// Define delegate protocol in the class that is sending the message
+// Extend the protocol in the class that is receiving the message
+protocol GUFollowerItemVCDelegate: AnyObject {
+    func didTapGetFollowers(for user: User)
+}
+
 class GUFollowerItemVC: GUItemInfoVC {
+    
+    weak var delegate: GUFollowerItemVCDelegate!
+    
+    init(user: User, delegate: GUFollowerItemVCDelegate) {
+        super.init(user: user)
+        self.delegate = delegate
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

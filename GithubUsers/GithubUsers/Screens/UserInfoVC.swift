@@ -7,21 +7,22 @@
 
 import UIKit
 
+// Define delegate protocol in the class that is sending the message
+// Extend the protocol in the class that is receiving the message
 protocol UserInfoVCDelegate: AnyObject {
-    func didTapGitHubProfile(for user: User)
-    func didTapGetFollowers(for user: User)
+    func didRequestFollowers(for username: String)
 }
 
 class UserInfoVC: GUDataLoadingVC {
     
-    let headerView = UIView()
-    let itemViewOne = UIView()
-    let itemViewTwo = UIView()
-    let dateLabel = GUBodyLabel(textAlignment: .center)
+    let headerView          = UIView()
+    let itemViewOne         = UIView()
+    let itemViewTwo         = UIView()
+    let dateLabel           = GUBodyLabel(textAlignment: .center)
     var itemViews: [UIView] = []
     
     var username: String!
-    weak var delegate: FollowersListVCDelegate!
+    weak var delegate: UserInfoVCDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,21 +35,15 @@ class UserInfoVC: GUDataLoadingVC {
     }
     
     func configureVC() {
-        view.backgroundColor = .systemBackground
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
-        navigationItem.rightBarButtonItem = doneButton
+        view.backgroundColor                = .systemBackground
+        let doneButton                      = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
+        navigationItem.rightBarButtonItem   = doneButton
     }
     
-    func configureUIElements(with user: User) {
-        let repoItemVC = GURepoItemVC(user: user)
-        repoItemVC.delegate = self
-        
-        let followerItemVC = GUFollowerItemVC(user: user)
-        followerItemVC.delegate = self
-        
+    func configureUIElements(with user: User) {        
         self.add(childVC: GUUserInfoHeaderVC(user: user), to: self.headerView)
-        self.add(childVC: repoItemVC, to: self.itemViewOne)
-        self.add(childVC: followerItemVC, to: self.itemViewTwo)
+        self.add(childVC: GURepoItemVC(user: user, delegate: self), to: self.itemViewOne)
+        self.add(childVC: GUFollowerItemVC(user: user, delegate: self), to: self.itemViewTwo)
         self.dateLabel.text = "GitHub Since \(user.createdAt.convertToMonthYearFormat())"
     }
     
@@ -69,7 +64,7 @@ class UserInfoVC: GUDataLoadingVC {
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 180),
+            headerView.heightAnchor.constraint(equalToConstant: 210),
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),
@@ -78,7 +73,7 @@ class UserInfoVC: GUDataLoadingVC {
             itemViewTwo.heightAnchor.constraint(equalToConstant: itemHeight),
             
             dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
-            dateLabel.heightAnchor.constraint(equalToConstant: 18)
+            dateLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -108,7 +103,8 @@ class UserInfoVC: GUDataLoadingVC {
     }
 }
 
-extension UserInfoVC: UserInfoVCDelegate {
+extension UserInfoVC: GURepoItemVCDelegate {
+    
     func didTapGitHubProfile(for user: User) {
         // Show Safari View Controller
         guard let url = URL(string: user.htmlUrl) else {
@@ -118,6 +114,9 @@ extension UserInfoVC: UserInfoVCDelegate {
         
         presentSafariVC(with: url)
     }
+}
+
+extension UserInfoVC: GUFollowerItemVCDelegate {
     
     func didTapGetFollowers(for user: User) {
         guard user.followers != 0 else { presentGUAlertOnMainThread(alertTitle: "No followers", message: "This user has no followers", buttonTitle: "So sad")
