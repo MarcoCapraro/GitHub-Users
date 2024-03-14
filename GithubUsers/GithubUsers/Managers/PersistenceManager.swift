@@ -15,10 +15,7 @@ enum PersistenceActionType {
 enum PersistenceManager {
     
     static private let defaults = UserDefaults.standard
-    
-    enum Keys {
-        static let favorites = "favorites"
-    }
+    enum Keys { static let favorites = "favorites" }
     
     static func updateWith(favorite: Follower, actionType: PersistenceActionType, completed: @escaping (GUError?) -> Void) {
         retrieveFavorites { result in
@@ -26,7 +23,6 @@ enum PersistenceManager {
             case .success(var favorites):
                 switch actionType {
                 case .add:
-                    // Check if already exists and if not, add it to the favorites list
                     guard !favorites.contains(favorite) else {
                         completed(.alreadyInFavorites)
                         return

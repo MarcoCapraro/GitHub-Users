@@ -7,9 +7,10 @@
 
 import Foundation
 
-// Refactored to conform to Error protocol to use with Result enumeration
+// Refactored to conform to the Error protocol and use with Result
 enum GUError: String, Error {
-    // the rawValue is the associated string to the enum case
+    
+    // The rawValue is the associated string
     case invalidUsername    = "This username created an invalid request. Please try again"
     case unableToComplete   = "nable to complete your request. Please check your internet connection"
     case invalidResponse    = "Invalid response from the server. Please try again"

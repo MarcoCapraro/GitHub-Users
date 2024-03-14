@@ -17,7 +17,6 @@ extension UIView {
             trailingAnchor.constraint(equalTo: superView.trailingAnchor),
             bottomAnchor.constraint(equalTo: superView.bottomAnchor),
         ])
-        
     }
     
     // Variadic Parameter that allows us to input any amount of views, that it will convert to an array

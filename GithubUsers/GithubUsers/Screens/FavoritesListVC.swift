@@ -49,20 +49,25 @@ class FavoritesListVC: GUDataLoadingVC {
             guard let self = self else { return  }
             switch result {
             case.success(let favorites):
-                // Populate favorites array or show empty state
-                if(favorites.isEmpty) {
-                    showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen", in: self.view)
-                } else {
-                    self.favorites = favorites
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        // Edge case, in case empty state is put ontop of tableView (prevents)
-                        self.view.bringSubviewToFront(self.tableView)
-                    }
-                }
+                self.updateUI(with: favorites)
+                
             case .failure(let error):
                 self.presentGUAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
                 
+            }
+        }
+    }
+    
+    func updateUI(with favorites: [Follower]) {
+        // Populate favorites array or show empty state
+        if(favorites.isEmpty) {
+            self.showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen", in: self.view)
+        } else {
+            self.favorites = favorites
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                // Edge case, in case empty state is put ontop of tableView (prevents)
+                self.view.bringSubviewToFront(self.tableView)
             }
         }
     }

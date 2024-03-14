@@ -31,7 +31,7 @@ class GUUserInfoHeaderVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        addSubviews()
+        view.addSubViews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
         layoutUI()
         configureUIElements()
     }
@@ -47,10 +47,6 @@ class GUUserInfoHeaderVC: UIViewController {
         
         locationImageView.image = SFSymbols.location
         locationImageView.tintColor = .secondaryLabel
-    }
-    
-    func addSubviews() {
-        view.addSubViews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
     }
     
     func layoutUI() {
