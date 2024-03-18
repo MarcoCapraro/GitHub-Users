@@ -11,7 +11,7 @@ class SearchVC: UIViewController {
     
     let logoImageView       = UIImageView()
     let usernameTextField   = GUTextField()
-    let callToActionButton  = GUButton(backgroundColor: .systemGreen, title: "Get Followers")
+    let callToActionButton  = GUButton(backgroundColor: .systemGreen, title: "Get Followers", systemImageName: "person.3")
     
     // Computed property that's value depends on other properties
     var isUsernameEntered: Bool { return !usernameTextField.text!.isEmpty }
