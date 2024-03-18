@@ -33,9 +33,12 @@ class GUAvatarImageView: UIImageView {
     
     // Makes network call to download image (or use cached image)
     func setImage(from urlString: String) {
-        NetworkManager.shared.downloadImage(from: urlString) { [weak self] image in
-            guard let self = self else { return }
-            DispatchQueue.main.async { self.image = image }
-        }
+//        NetworkManager.shared.downloadImage(from: urlString) { [weak self] image in
+//            guard let self = self else { return }
+//            DispatchQueue.main.async { self.image = image }
+//        }
+        
+        // Don't need to mark try because we aren't worried about catching errors
+        Task { image = await NetworkManager.shared.downloadImage(from: urlString) ?? placeholderImage }
     }
 }
