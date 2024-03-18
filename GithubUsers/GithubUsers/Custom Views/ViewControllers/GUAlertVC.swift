@@ -12,7 +12,7 @@ class GUAlertVC: UIViewController {
     let containerView   = GUContainerView()
     let titleLabel      = GUTitleLabel(textAlignment: .center, fontSize: 20)
     let messageLabel    = GUBodyLabel(textAlignment: .center)
-    let actionButton    = GUButton(backgroundColor: .systemPink, title: "Ok")
+    let actionButton    = GUButton(backgroundColor: .systemPink, title: "Ok", systemImageName: "checkmark.circle")
     
     var alertTitle: String?
     var message: String?

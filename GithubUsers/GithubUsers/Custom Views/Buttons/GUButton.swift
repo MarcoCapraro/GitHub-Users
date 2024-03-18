@@ -18,10 +18,9 @@ class GUButton: UIButton {
     }
     
     // To create buttons with different text and color
-    convenience init(backgroundColor: UIColor, title: String) {
+    convenience init(backgroundColor: UIColor, title: String, systemImageName: String) {
         self.init(frame: .zero)
-        self.backgroundColor = backgroundColor
-        self.setTitle(title, for: .normal)
+        set(color: backgroundColor, title: title, systemImageName: systemImageName)
     }
     
     // This is needed to avoid storyboard initialization error
@@ -30,16 +29,18 @@ class GUButton: UIButton {
     }
     
     private func configure() {
-        layer.cornerRadius = 10
-        setTitleColor(.white, for: .normal)
-        
-        // Human Interface Guidelines recommended using built-in text styles for dynamic type and consistency
-        titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        translatesAutoresizingMaskIntoConstraints = false
+        configuration                               = .filled()
+        configuration?.cornerStyle                  = .medium
+        translatesAutoresizingMaskIntoConstraints   = false
     }
     
-    func set(backgroundColor: UIColor, title: String) {
-        self.backgroundColor = backgroundColor
-        self.setTitle(title, for: .normal)
+    func set(color: UIColor, title: String, systemImageName: String) {
+        configuration?.baseBackgroundColor  = color
+        configuration?.baseForegroundColor  = .white
+        configuration?.title                = title
+        
+        configuration?.image                = UIImage(systemName: systemImageName)
+        configuration?.imagePadding         = 6
+        configuration?.imagePlacement       = .leading
     }
 }
