@@ -83,21 +83,51 @@ class FollowersListVC: GUDataLoadingVC {
         showLoadingView()
         isLoadingMoreFollowers = true
         
-        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            
-            switch result {
-            case . success(let followers):
-                self.updateUI(with: followers)
+        // Structured Concurrency (Top-Bottom Structure)
+        Task {
+            do {
+                let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
+                updateUI(with: followers)
+                dismissLoadingView()
+                isLoadingMoreFollowers = false
+            } catch {
+                // handle errors
+                if let guError = error as? GUError {
+                    presentGUAlert(alertTitle: "Bad Stuff Happened", message: guError.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultAlert()
+                }
                 
-            case .failure(let err):
-                self.presentGUAlertOnMainThread(alertTitle: "Bad Stuff", message: err.rawValue, buttonTitle: "Ok")
+                isLoadingMoreFollowers = false
+                dismissLoadingView()
             }
             
-            isLoadingMoreFollowers = false
-                        
+//            guard let followers = try? await NetworkManager.shared.getFollowers(for: username, page: page) else {
+//                presentDefaultAlert()
+//                dismissLoadingView()
+//                return
+//            }
+//            
+//            updateUI(with: followers)
+//            dismissLoadingView()
         }
+        
+        
+//        NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
+//            guard let self = self else { return }
+//            self.dismissLoadingView()
+//            
+//            switch result {
+//            case . success(let followers):
+//                self.updateUI(with: followers)
+//                
+//            case .failure(let err):
+//                self.presentGUAlertOnMainThread(alertTitle: "Bad Stuff", message: err.rawValue, buttonTitle: "Ok")
+//            }
+//            
+//            isLoadingMoreFollowers = false
+//                        
+//        }
     }
     
     func updateUI(with followers: [Follower]) {
@@ -135,19 +165,35 @@ class FollowersListVC: GUDataLoadingVC {
     @objc func addButtonTapped() {
         showLoadingView()
         
-        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            
-            switch result {
-            case .success(let user):
-                self.addUserToFavorites(user: user)
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUserInfo(for: username)
+                addUserToFavorites(user: user)
+                dismissLoadingView()
+            } catch {
+                if let guError = error as? GUError {
+                    presentGUAlert(alertTitle: "Something Went Wrong", message: guError.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultAlert()
+                }
                 
-            case .failure(let error):
-                self.presentGUAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+                dismissLoadingView()
             }
-            
         }
+        
+//        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
+//            guard let self = self else { return }
+//            self.dismissLoadingView()
+//            
+//            switch result {
+//            case .success(let user):
+//                self.addUserToFavorites(user: user)
+//                
+//            case .failure(let error):
+//                self.presentGUAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+//            }
+//            
+//        }
     }
     
     func addUserToFavorites(user: User) {
@@ -155,11 +201,15 @@ class FollowersListVC: GUDataLoadingVC {
         PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
             guard let self = self else { return }
             guard let error = error else {
-                self.presentGUAlertOnMainThread(alertTitle: "Success!", message: "You have successfully favorited this user", buttonTitle: "Hooray!")
+                DispatchQueue.main.async {
+                    self.presentGUAlert(alertTitle: "Success!", message: "You have successfully favorited this user", buttonTitle: "Hooray!")
+                }
                 return
             }
             
-            self.presentGUAlertOnMainThread(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+            DispatchQueue.main.async {
+                self.presentGUAlert(alertTitle: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+            }
         }
     }
 

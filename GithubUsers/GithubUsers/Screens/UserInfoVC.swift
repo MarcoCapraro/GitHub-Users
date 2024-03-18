@@ -95,16 +95,31 @@ class UserInfoVC: GUDataLoadingVC {
     }
     
     func getUserInfo() {
-        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let user):
-                DispatchQueue.main.async { self.configureUIElements(with: user) }
-            case .failure(let error):
-                self.presentGUAlertOnMainThread(alertTitle: "Something Went Wrong", message: error.rawValue, buttonTitle: "Ok")
+        
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUserInfo(for: username)
+                configureUIElements(with: user)
+            } catch {
+                if let guError = error as? GUError {
+                    presentGUAlert(alertTitle: "Something Went Wrong", message: guError.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultAlert()
+                }
             }
         }
+        
+//        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
+//            guard let self = self else { return }
+//            
+//            switch result {
+//            case .success(let user):
+//                DispatchQueue.main.async { self.configureUIElements(with: user) }
+//            case .failure(let error):
+//                self.presentGUAlertOnMainThread(alertTitle: "Something Went Wrong", message: error.rawValue, buttonTitle: "Ok")
+//            }
+//        }
+        
     }
     
     func add(childVC: UIViewController, to containerView: UIView) {
@@ -125,7 +140,7 @@ extension UserInfoVC: GURepoItemVCDelegate {
     func didTapGitHubProfile(for user: User) {
         // Show Safari View Controller
         guard let url = URL(string: user.htmlUrl) else {
-            presentGUAlertOnMainThread(alertTitle: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "Ok")
+            presentGUAlert(alertTitle: "Invalid URL", message: "The url attached to this user is invalid", buttonTitle: "Ok")
             return
         }
         
@@ -136,7 +151,7 @@ extension UserInfoVC: GURepoItemVCDelegate {
 extension UserInfoVC: GUFollowerItemVCDelegate {
     
     func didTapGetFollowers(for user: User) {
-        guard user.followers != 0 else { presentGUAlertOnMainThread(alertTitle: "No followers", message: "This user has no followers", buttonTitle: "So sad")
+        guard user.followers != 0 else { presentGUAlert(alertTitle: "No followers", message: "This user has no followers", buttonTitle: "So sad")
             return
         }
         // Tell FollowersListVC screen the new user
