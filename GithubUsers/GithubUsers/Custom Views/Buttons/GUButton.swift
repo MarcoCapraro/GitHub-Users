@@ -44,3 +44,7 @@ class GUButton: UIButton {
         configuration?.imagePlacement       = .leading
     }
 }
+
+#Preview {
+    GUButton(backgroundColor: .blue, title: "Test Button", systemImageName: "pencil")
+}
