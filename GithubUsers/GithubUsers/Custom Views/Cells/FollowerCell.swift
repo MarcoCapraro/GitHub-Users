@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class FollowerCell: UICollectionViewCell {
     
@@ -25,8 +26,16 @@ class FollowerCell: UICollectionViewCell {
     }
     
     func set(follower: Follower) {
-        usernameLabel.text = follower.login
-        avatarImageView.setImage(from: follower.avatarUrl)
+        if #available(iOS 17.0, *) {
+            // Passes SwiftUI View for the cell
+            contentConfiguration = UIHostingConfiguration { FollowerView(follower: follower) }
+        } else {
+            // Fallback one earlier versions
+            usernameLabel.text = follower.login
+            avatarImageView.setImage(from: follower.avatarUrl)
+        }
+        
+        
     }
     
     private func configure() {

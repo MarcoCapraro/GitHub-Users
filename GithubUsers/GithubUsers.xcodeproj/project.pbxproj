@@ -45,6 +45,7 @@
 		87D2C7AB2B9A6A9800A43B96 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7AA2B9A6A9800A43B96 /* String+Ext.swift */; };
 		87D341822B7E951A00BF6E4B /* GUTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D341812B7E951A00BF6E4B /* GUTitleLabel.swift */; };
 		87D341842B7E95FB00BF6E4B /* GUBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D341832B7E95FB00BF6E4B /* GUBodyLabel.swift */; };
+		87D7E4102BA8F13100F4EBEC /* FollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D7E40F2BA8F13100F4EBEC /* FollowerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		87D2C7AA2B9A6A9800A43B96 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		87D341812B7E951A00BF6E4B /* GUTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUTitleLabel.swift; sourceTree = "<group>"; };
 		87D341832B7E95FB00BF6E4B /* GUBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GUBodyLabel.swift; sourceTree = "<group>"; };
+		87D7E40F2BA8F13100F4EBEC /* FollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		8726626B2B8E6E5F00E841D9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				87D7E40E2BA8F11C00F4EBEC /* FollowerCell */,
 				8726626C2B8E6E7700E841D9 /* FollowerCell.swift */,
 				871DA8AB2B9FA57D006EB8AB /* FavoriteCell.swift */,
 			);
@@ -291,6 +294,14 @@
 			path = ItemInfoVCs;
 			sourceTree = "<group>";
 		};
+		87D7E40E2BA8F11C00F4EBEC /* FollowerCell */ = {
+			isa = PBXGroup;
+			children = (
+				87D7E40F2BA8F13100F4EBEC /* FollowerView.swift */,
+			);
+			path = FollowerCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -361,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D7E4102BA8F13100F4EBEC /* FollowerView.swift in Sources */,
 				872662792B9668C100E841D9 /* GUEmptyStateView.swift in Sources */,
 				8726626A2B8E6BB100E841D9 /* GUError.swift in Sources */,
 				87CC97D72B76C9BA00767BAE /* FavoritesListVC.swift in Sources */,
