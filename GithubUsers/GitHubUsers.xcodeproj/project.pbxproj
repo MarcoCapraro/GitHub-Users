@@ -70,7 +70,7 @@
 		8764F4AA2B7EB02800B05C40 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		8764F4AC2B7EB0AA00B05C40 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8764F4AE2B7EB61000B05C40 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		87CC97BB2B76C32A00767BAE /* GithubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87CC97BB2B76C32A00767BAE /* GitHubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CC97BE2B76C32A00767BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87CC97C02B76C32A00767BAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		87CC97C72B76C32B00767BAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		87CC97B22B76C32A00767BAE = {
 			isa = PBXGroup;
 			children = (
-				87CC97BD2B76C32A00767BAE /* GithubUsers */,
+				87CC97BD2B76C32A00767BAE /* GitHubUsers */,
 				87CC97BC2B76C32A00767BAE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -264,12 +264,12 @@
 		87CC97BC2B76C32A00767BAE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				87CC97BB2B76C32A00767BAE /* GithubUsers.app */,
+				87CC97BB2B76C32A00767BAE /* GitHubUsers.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		87CC97BD2B76C32A00767BAE /* GithubUsers */ = {
+		87CC97BD2B76C32A00767BAE /* GitHubUsers */ = {
 			isa = PBXGroup;
 			children = (
 				872662662B8E65DA00E841D9 /* Utilities */,
@@ -281,7 +281,7 @@
 				8764F4A62B7E9FBA00B05C40 /* Support */,
 				87CC97CC2B76C32B00767BAE /* Info.plist */,
 			);
-			path = GithubUsers;
+			path = GitHubUsers;
 			sourceTree = "<group>";
 		};
 		87D2C7A72B99217200A43B96 /* ItemInfoVCs */ = {
@@ -305,9 +305,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		87CC97BA2B76C32A00767BAE /* GithubUsers */ = {
+		87CC97BA2B76C32A00767BAE /* GitHubUsers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 87CC97CF2B76C32B00767BAE /* Build configuration list for PBXNativeTarget "GithubUsers" */;
+			buildConfigurationList = 87CC97CF2B76C32B00767BAE /* Build configuration list for PBXNativeTarget "GitHubUsers" */;
 			buildPhases = (
 				87CC97B72B76C32A00767BAE /* Sources */,
 				87CC97B82B76C32A00767BAE /* Frameworks */,
@@ -317,9 +317,9 @@
 			);
 			dependencies = (
 			);
-			name = GithubUsers;
+			name = GitHubUsers;
 			productName = GithubUsers;
-			productReference = 87CC97BB2B76C32A00767BAE /* GithubUsers.app */;
+			productReference = 87CC97BB2B76C32A00767BAE /* GitHubUsers.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -350,7 +350,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				87CC97BA2B76C32A00767BAE /* GithubUsers */,
+				87CC97BA2B76C32A00767BAE /* GitHubUsers */,
 			);
 		};
 /* End PBXProject section */
@@ -609,7 +609,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		87CC97CF2B76C32B00767BAE /* Build configuration list for PBXNativeTarget "GithubUsers" */ = {
+		87CC97CF2B76C32B00767BAE /* Build configuration list for PBXNativeTarget "GitHubUsers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87CC97D02B76C32B00767BAE /* Debug */,
