@@ -20,7 +20,7 @@ class FavoritesListVC: GUDataLoadingVC {
         configureTableView()
     }
     
-    // Ensure that mid-session favorites can be refreshed
+    // Ensure that favorites can be refreshed mid-session
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getFavorites()

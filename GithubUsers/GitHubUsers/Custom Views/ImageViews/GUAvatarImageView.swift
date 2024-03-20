@@ -26,9 +26,10 @@ class GUAvatarImageView: UIImageView {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        layer.cornerRadius      = 10                // rounded edges
-        clipsToBounds           = true              // clips avatar UIImage to bounds of UIImageView so it also conforms to rounded edges
-        image                   = placeholderImage  // sets the default image view in case of no avatar to placeholder image
+        // Rounded Edges, Clips Image to Container, Sets Default Image (in case it cant be downloaded)
+        layer.cornerRadius      = 10
+        clipsToBounds           = true
+        image                   = placeholderImage
     }
     
     // Makes network call to download image (or use cached image)
@@ -38,7 +39,7 @@ class GUAvatarImageView: UIImageView {
 //            DispatchQueue.main.async { self.image = image }
 //        }
         
-        // Don't need to mark try because we aren't worried about catching errors
+        // Don't have try keyword because there is no need to catch errors
         Task { image = await NetworkManager.shared.downloadImage(from: urlString) ?? placeholderImage }
     }
 }

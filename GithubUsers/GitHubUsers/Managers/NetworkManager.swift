@@ -77,9 +77,7 @@ class NetworkManager {
         
     }
 
-    // completion handler (closure): @ escaping (return Follower array, return error String)
     func getFollowers(for username: String, page: Int) async throws -> [Follower] {
-        // Create the url that we will be trying to access data from
         let endpointExt = "/followers?per_page=100&page=\(page)"
         return try await getGenericJSONData(for: username, with: endpointExt)
     }
@@ -88,7 +86,7 @@ class NetworkManager {
         return try await getGenericJSONData(for: username, with: nil)
     }
     
-    // Dont use throw mark because we don't care about the errors just the optional return result
+    // Dont use throw keyword, only need an optional return result, no errors to handle
     func downloadImage(from urlString: String) async -> UIImage? {
         // Try to pull from cache otherwise download image
         let cacheKey    = NSString(string: urlString)
