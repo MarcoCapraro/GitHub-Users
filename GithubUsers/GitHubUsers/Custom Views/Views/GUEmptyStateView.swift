@@ -29,7 +29,6 @@ class GUEmptyStateView: UIView {
     }
     
     private func configure() {
-        // Do Something
         addSubViews(messageLabel, logoImageView)
         configureMessageLabel()
         configureLogoImageView()
@@ -39,7 +38,7 @@ class GUEmptyStateView: UIView {
         messageLabel.numberOfLines = 3
         messageLabel.textColor = .secondaryLabel
         
-        let labelCenterYConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -80 : -150
+        let labelCenterYConstant: CGFloat = DeviceTypes.isHeight568 || DeviceTypes.isHeight667Zoomed ? -80 : -150
         NSLayoutConstraint.activate([
             messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: labelCenterYConstant),
             messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
@@ -52,7 +51,7 @@ class GUEmptyStateView: UIView {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.image = Images.emptyStateLogo
         
-        let logoBottomConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 80 : 40
+        let logoBottomConstant: CGFloat = DeviceTypes.isHeight568 || DeviceTypes.isHeight667Zoomed ? 80 : 40
         NSLayoutConstraint.activate([
             logoImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),
             logoImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.3),

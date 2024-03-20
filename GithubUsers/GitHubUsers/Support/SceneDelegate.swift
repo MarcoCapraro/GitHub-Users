@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
                 
+        // Removes Storyboard and allows for Fully Programmatic UI
         window                      = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene         = windowScene
         window?.rootViewController  = GUTabBarController()
@@ -25,14 +26,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func configureNavigationBar() {
-        if #available(iOS 15, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            UINavigationBar.appearance().standardAppearance     = appearance
-            UINavigationBar.appearance().scrollEdgeAppearance   = appearance
-        }
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
         
-        UINavigationBar.appearance().tintColor = .systemGreen
+        UINavigationBar.appearance().standardAppearance     = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance   = appearance
+        UINavigationBar.appearance().tintColor              = .systemGreen
     }
 
 

@@ -31,7 +31,6 @@ class UserInfoVC: GUDataLoadingVC {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         configureVC()
         configureScrollView()
         layoutUI()
@@ -42,13 +41,6 @@ class UserInfoVC: GUDataLoadingVC {
         view.backgroundColor                = .systemBackground
         let doneButton                      = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem   = doneButton
-    }
-    
-    func configureUIElements(with user: User) {        
-        self.add(childVC: GUUserInfoHeaderVC(user: user), to: self.headerView)
-        self.add(childVC: GURepoItemVC(user: user, delegate: self), to: self.itemViewOne)
-        self.add(childVC: GUFollowerItemVC(user: user, delegate: self), to: self.itemViewTwo)
-        self.dateLabel.text = "GitHub Since \(user.createdAt.convertToMonthYearFormat())"
     }
     
     func configureScrollView() {
@@ -63,6 +55,15 @@ class UserInfoVC: GUDataLoadingVC {
             contentView.heightAnchor.constraint(equalToConstant: 600)
         ])
     }
+    
+    func configureUIElements(with user: User) {        
+        self.add(childVC: GUUserInfoHeaderVC(user: user), to: self.headerView)
+        self.add(childVC: GURepoItemVC(user: user, delegate: self), to: self.itemViewOne)
+        self.add(childVC: GUFollowerItemVC(user: user, delegate: self), to: self.itemViewTwo)
+        self.dateLabel.text = "GitHub Since \(user.createdAt.convertToMonthYearFormat())"
+    }
+    
+
     
     func layoutUI() {
         itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
